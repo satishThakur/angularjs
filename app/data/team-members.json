@@ -1,0 +1,82 @@
+[
+    {
+        "id": 0,
+        "name": "Satish Kumar",
+        "team": "AMS Core",
+        "role": "Developer",
+        "officeEmail" : "satish.sk.kumar@alcatel-lucent.com",
+        "gmail" : "satish.manit@gmail.com"
+    },
+
+    {
+        "id": 1,
+        "name": "Steven Van Hoof",
+        "team": "AMS Core",
+        "role": "Architect",
+        "officeEmail" : "satish.sk.kumar@alcatel-lucent.com",
+        "gmail" : "satish.manit@gmail.com"
+    },
+
+    {
+        "id": 2,
+        "name": "Mukesh Palavalasa",
+        "team": "AMS Core",
+        "role": "IA",
+        "officeEmail" : "satish.sk.kumar@alcatel-lucent.com",
+        "gmail" : "satish.manit@gmail.com"
+    },
+
+    {
+        "id": 3,
+        "name": "Peter V",
+        "team": "SNMP Runtime",
+        "role": "IA",
+        "officeEmail" : "satish.sk.kumar@alcatel-lucent.com",
+        "gmail" : "satish.manit@gmail.com"
+    },
+
+    {
+        "id": 4,
+        "name": "Bala",
+        "team": "SNMP Runtime",
+        "role": "Developer",
+        "officeEmail" : "satish.sk.kumar@alcatel-lucent.com",
+        "gmail" : "satish.manit@gmail.com"
+    },
+
+    {
+        "id": 5,
+        "name": "Sathya",
+        "team": "SNMP Runtime",
+        "role": "Developer",
+        "officeEmail" : "satish.sk.kumar@alcatel-lucent.com",
+        "gmail" : "satish.manit@gmail.com"
+    },
+    {
+        "id": 6,
+        "name": "Huy Nagyen",
+        "team": "Template/NP",
+        "role": "IA",
+        "officeEmail" : "satish.sk.kumar@alcatel-lucent.com",
+        "gmail" : "satish.manit@gmail.com"
+    },
+    {
+        "id": 7,
+        "name": "Tuan Nguyen",
+        "team": "Template/NP",
+        "role": "Developer",
+        "officeEmail" : "satish.sk.kumar@alcatel-lucent.com",
+        "gmail" : "satish.manit@gmail.com"
+    },
+    {
+        "id": 8,
+        "name": "Tai Tran",
+        "team": "Template/NP",
+        "role": "Developer",
+        "officeEmail" : "satish.sk.kumar@alcatel-lucent.com",
+        "gmail" : "satish.manit@gmail.com"
+    }
+
+
+
+]

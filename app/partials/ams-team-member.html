@@ -1,0 +1,57 @@
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/amsteam">AMS</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <h1 class="page-header">{{member.name}}</h1>
+            <table class="table table-striped">
+                <thead>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Team</th>
+                        <td>{{member.team}}</td>
+                    </tr>
+                    <tr>
+                        <th>Role</th>
+                        <td>{{member.role}}</td>
+                    </tr>
+                    <tr>
+                        <th>Office Email</th>
+                        <td><a href="mailto:{{member.officeEmail}}">{{member.officeEmail}}</a></td>
+                    </tr>
+                    <tr>
+                        <th>Gmail</th>
+                        <td><a href="mailto:{{member.gmail}}">{{member.gmail}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr/>
+            <button type="button" class="btn btn-primary" ng-click="go('/amsteam')">Back</button>
+            <button type="button" class="btn btn-warning" ng-click="setEditing()">Edit</button>
+            <button type="button" class="btn btn-danger" ng-click="deleteMember();go('/amsteam');">Delete</button>
+
+            <form class="edit-form" ng-show="isEditing" role="form" ng-submit="updateMember()" novalidate>
+                <h3>Editing: {{editMember.name}}</h3>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" ng-model="editMember.name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <input type="text" class="form-control" ng-model="editMember.role" placeholder="Role">
+                </div>
+                <button type="submit" class="btn btn-info btn-lg">Save</button>
+                <button type="button" class="btn btn-default btn-lg pull-right" ng-click="cancelEditing()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+</div>
