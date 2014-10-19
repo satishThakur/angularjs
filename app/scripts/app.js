@@ -12,9 +12,13 @@ app.config(['$routeProvider',
             }).when('/member/:id', {
                 templateUrl: 'partials/ams-team-member.html',
                 controller : 'MemberController'
-            }
-
-        ).otherwise({
+            }).when('/member/edit/:id',{
+                templateUrl: 'partials/ams-team-member-edit.html',
+                controller: 'TeamMemberEditCtrl'
+        }).when('/teams/:team/create',{
+                templateUrl: 'partials/ams-team-member-edit.html',
+                controller: 'TeamMemberCreateCtrl'
+            }).otherwise({
                 redirectTo: '/amsteam'
             });
     }]);
