@@ -2,7 +2,7 @@
  * Created by satish on 18/10/14.
  */
 angular.module('TeamControllers').controller('TeamMemberCreateCtrl',
-    function($scope, $routeParams,teamMemberFactory, $location){
+    function($scope, $routeParams,Members, $location){
 
         var team = $routeParams.team;
 
@@ -11,8 +11,7 @@ angular.module('TeamControllers').controller('TeamMemberCreateCtrl',
 
         $scope.updateMember = function(){
             $scope.editMember.team = team;
-            teamMemberFactory.createMember($scope.editMember).success(function(data){
-                console.log('got data', data);
+            Members.save($scope.editMember, function(data){
                 $location.path('/member/' + data.id);
             });
         }
@@ -20,7 +19,5 @@ angular.module('TeamControllers').controller('TeamMemberCreateCtrl',
         $scope.cancelEditing = function(){
             $location.path('/amsteam');
         }
-
-
 
     });

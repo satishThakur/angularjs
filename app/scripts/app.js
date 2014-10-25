@@ -21,5 +21,23 @@ app.config(['$routeProvider',
             }).otherwise({
                 redirectTo: '/amsteam'
             });
-    }]);
+    }]).config(['$httpProvider', function($httpProvider){
+                $httpProvider.interceptors.push(function(){
+                    return {
+                      request : function(config){
+                          //console.log('HTTP request being made: ',config);
+                          return config;
+                        },
+                      response : function(config){
+                        //console.log('HTTP response received: ', config.status, config.data);
+                        return config;
+                      }
+
+                    };
+                });
+    }]).config(function($logProvider){
+        $logProvider.debugEnabled(true);
+    }).run(function($rootScope, $log){
+        $rootScope.$log = $log;
+    });
 

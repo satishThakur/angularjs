@@ -6,27 +6,20 @@ var app = angular.module('TeamControllers',[]);
 
 
 
-app.controller("TeamCtrl",["$scope","teamNameFactory","teamMemberFactory",
+app.controller("TeamCtrl",["$scope","Teams","Members",
     'SelectionData','$location',
-    function($scope, teamNameFactory,teamMemberFactory,SelectionData, $location){
+    function($scope, Teams,Members,SelectionData, $location){
 
-    $scope.teams = [];
-    teamNameFactory.getTeams().success(function(data){
-        $scope.teams = data;
-    });
+    $scope.teams = Teams.query();
 
-    $scope.members = [];
-
-    teamMemberFactory.getMembers().success(function (data) {
-        $scope.members = data;
-    });
+    $scope.members = Members.query();
 
     $scope.selectionData = SelectionData;
 
     $scope.$watch(function(){
         return SelectionData.selection;
     }, function(){
-        console.log('data changed!!');
+        $scope.$log.debug('data changed!!');
         $scope.setSelectedTeam('');
     });
 
@@ -56,50 +49,44 @@ app.controller("TeamCtrl",["$scope","teamNameFactory","teamMemberFactory",
 
     $scope.removeMember = function(member){
         var index  = _.indexOf($scope.members, member);
-        teamMemberFactory.deleteMember(member.id).success(function(){
+        Members.delete({id : member.id},function(data){
+            $scope.$log.debug('Delete data:', data);
             $scope.members.splice(index,1);
         });
-
     }
     //this should be a directive!!! fixme
 
     $scope.go = function(path){
-        console.log('go to location', path);
+        $scope.$log.debug('go to location', path);
         $location.path(path);
     }
 
     $scope.goEditMember = function(member){
-        console.log('GoEditMember called!!', member);
+        $scope.$log.debug('GoEditMember called!!', member);
         $scope.go('/member/edit/' + member.id);
     }
 }]);
 
 
-app.controller('MemberController', ['$scope', '$routeParams','teamMemberFactory',
-    '$location',function($scope, $routeParams,teamMemberFactory,$location){
+app.controller('MemberController', ['$scope', '$routeParams','Members',
+    '$location',function($scope, $routeParams,Members,$location){
 
     var id = $routeParams.id;
-    console.log("id is: ", id);
+    $scope.$log.debug("id is: ", id);
 
-    $scope.member = null;
-
-    teamMemberFactory.getMember(id).success(function(data){
-        $scope.member = data;
-    });
+    $scope.member = Members.get({id : id});
 
     $scope.go = function ( path ) {
         $location.path( path );
     };
 
     $scope.deleteMember = function(location){
-
-        teamMemberFactory.deleteMember($scope.member.id).success(function(){
-                $scope.go(location);
+        Members.delete({id : $scope.member.id}, function(){
+            $scope.go(location);
         });
     }
 
     $scope.goEditMember = function(member){
-        console.log('GoEditMember called!!', member);
         $scope.go('/member/edit/' + member.id);
     }
 
@@ -116,9 +103,7 @@ app.factory('SelectionData', function(){
 
 app.controller('HeaderCtrl', ['$scope','SelectionData', function($scope,SelectionData){
     $scope.selected = function(){
-        console.log('selection made!!');
         SelectionData.selection = !SelectionData.selection;
-        console.log('selection made!!', SelectionData);
     }
 }]);
 

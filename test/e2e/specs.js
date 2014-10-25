@@ -55,4 +55,14 @@ describe('AMS Team Home Page', function() {
 
     });
 
+    it('should only display steven, satish and sathya when we have filer as s',function(){
+
+    });
+
+    it('should display nothing when we put test in filter',function(){
+
+    });
+
+
+
 });

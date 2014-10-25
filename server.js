@@ -49,10 +49,12 @@ app.post('/app/members/:id', function(req, res){
             member.team = req.body.team || member.team;
             member.officeEmail = req.body.officeEmail || member.officeEmail;
             member.gmail = req.body.gmail || member.gmail;
-            break;
+            return res.json(member);
         }
     }
-    res.json({ status: true });
+
+    return res.json({status : false});
+
 });
 
 

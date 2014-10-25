@@ -1,7 +1,7 @@
 /**
  * Created by satish on 05/10/14.
  */
-var servicesApp = angular.module('Services', []);
+var servicesApp = angular.module('Services', ['ngResource']);
 
 servicesApp.factory('teamNameFactory', function($http){
 
