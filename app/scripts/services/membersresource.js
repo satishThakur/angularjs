@@ -3,6 +3,7 @@
  */
 
 // This just mimics how we can wrap http for resource kind of functionality.
+//This is kind of factory of factory.
 angular.module('Services').factory('MembersResource', function($http){
 
     return function(url, params){

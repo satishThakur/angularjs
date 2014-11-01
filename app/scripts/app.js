@@ -37,6 +37,8 @@ app.config(['$routeProvider',
                 });
     }]).config(function($logProvider){
         $logProvider.debugEnabled(true);
+    }).config(function($locationProvider){
+        $locationProvider.html5Mode(true);
     }).run(function($rootScope, $log){
         $rootScope.$log = $log;
     });

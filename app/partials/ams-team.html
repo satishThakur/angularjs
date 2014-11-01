@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li ng-repeat="team in teams" ng-class="{'active':isTeamSelected(team)}">
                     <a ng-click="setSelectedTeam(team)">
@@ -11,7 +11,7 @@
             </ul>
 
         </div>
-        <div class="col-sm-6 col-sm-offset-3 col-md-7 col-md-offset-2 main clearfix ">
+        <div class="col-sm-7 col-sm-offset-2 main clearfix">
             <form class="navbar-form">
                 <input type="text" class="form-control" placeholder="Search..." ng-model="query.name">
             </form>
@@ -19,14 +19,20 @@
 
             <ul class="list-group">
                 <li class="list-group-item clearfix" ng-repeat="memeber in members | filter:{ team : selectedTeam } | filter:query ">
-                    <div class="member-container">
-                        <a href="#/member/{{memeber.id}}">
-                            <span class="glyphicon glyphicon-user"></span>
-                            <span>{{memeber.name}} </span>
-                            <span>- ({{memeber.role}})</span>
-                        </a>
-                        <button type="button" class="btn btn-danger pull-right" ng-click="removeMember(memeber)">Delete</button>
-                        <button type="button" class="btn btn-warning pull-right" ng-click="goEditMember(memeber)">Edit</button>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <a href="#/member/{{memeber.id}}">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <span>{{memeber.name}} </span>
+                                <span>- ({{memeber.role}})</span>
+                            </a>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="btn btn-warning main-edit" ng-click="goEditMember(memeber)">Edit</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="btn btn-danger main-delete" ng-click="removeMember(memeber)">Delete</button>
+                        </div>
                     </div>
                 </li>
             </ul>

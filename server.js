@@ -95,6 +95,10 @@ app.delete('/app/members/:id', function(req, res) {
     res.json(data);
 });
 
+app.all('/*', function(req, res) {
+    res.sendfile('app/index.html');
+});
+
 app.listen(3000);
 
 console.log('Express listening on port 3000');
