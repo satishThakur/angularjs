@@ -3,9 +3,13 @@
     <div class="row">
         <div class="col-sm-2 sidebar">
             <ul class="nav nav-sidebar">
+                <li ng-class="{'active': true}">
+                    <a ui-sref="contacts.list">All Members</a>
+                </li>
+
                 <li ng-repeat="team in teams" ng-class="{'active':isTeamSelected(team)}">
                     <a ng-click="setSelectedTeam(team)">
-                        <h4>{{team}}</h4>
+                        {{team}}
                     </a>
                 </li>
             </ul>

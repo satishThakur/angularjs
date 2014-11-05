@@ -1,0 +1,19 @@
+
+    <div class="col-sm-2 sidebar">
+        <ul class="nav nav-sidebar">
+            <li ui-sref-active="active">
+                <a ui-sref="team.members({team : 'amsteam'})">All Members</a>
+            </li>
+
+            <li ng-repeat="t in teams" ui-sref-active="active">
+                <a ui-sref="team.members({team : t})">
+                    {{t}}
+                </a>
+            </li>
+        </ul>
+
+    </div>
+    <!--
+      This is for the child view.
+    -->
+    <div ui-view></div>

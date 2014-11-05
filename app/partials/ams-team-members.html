@@ -1,0 +1,40 @@
+<div class="col-sm-7 col-sm-offset-2 main clearfix">
+    <form class="navbar-form">
+        <input type="text" class="form-control" placeholder="Search..." ng-model="query.name">
+    </form>
+    <h1 class="page-header">{{teamScope}} Team Members</h1>
+
+    <ul class="list-group">
+        <li class="list-group-item clearfix" ng-repeat="memeber in members | filter:{ team : selectedTeam } | filter:query ">
+            <div class="row">
+                <div class="col-sm-8">
+                    <a ui-sref="member({id : memeber.id})">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span>{{memeber.name}} </span>
+                        <span>- ({{memeber.role}})</span>
+                    </a>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-warning main-edit" ng-click="goEditMember(memeber)">Edit</button>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-danger main-delete" ng-click="removeMember(memeber)">Delete</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <hr/>
+
+    <!-- CREATING -->
+    <div ng-if="shouldShowCreating()">
+        <a ui-sref="team.members.create">
+            <button type="button" class="btn btn-link">
+                <span class="glyphicon glyphicon-plus"></span>
+                Add new member
+            </button>
+        </a>
+    </div>
+
+    <div ui-view></div>
+    </div>

@@ -27,10 +27,12 @@
                 </tbody>
             </table>
             <hr/>
-            <button type="button" class="btn btn-primary" ng-click="go('/amsteam')">Back</button>
-            <button type="button" class="btn btn-warning" ng-click="goEditMember(member)">Edit</button>
-            <button type="button" class="btn btn-danger" ng-click="deleteMember('/amsteam')">Delete</button>
+            <button type="button" class="btn btn-primary" ng-click="back()">Back</button>
+            <a ui-sref="member.edit"><button type="button" class="btn btn-warning">Edit</button></a>
+
+            <button type="button" class="btn btn-danger" ng-click="deleteMember()">Delete</button>
         </div>
     </div>
+    <div ui-view></div>
 
 </div>

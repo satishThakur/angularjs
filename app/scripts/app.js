@@ -1,26 +1,37 @@
 'use strict';
 
-var app = angular.module('teamApp',['ngRoute','TeamControllers','Services']);
+var app = angular.module('teamApp',['ui.router','TeamControllers','Services']);
 
-app.config(['$routeProvider',
-    function($routeProvider) {
-        $routeProvider.
-            when('/amsteam', {
-                templateUrl: 'partials/ams-team.html',
-                controller : 'TeamCtrl'
+app.config(['$urlRouterProvider', '$stateProvider',
+    function($urlRouterProvider, $stateProvider) {
 
-            }).when('/member/:id', {
-                templateUrl: 'partials/ams-team-member.html',
-                controller : 'MemberController'
-            }).when('/member/edit/:id',{
-                templateUrl: 'partials/ams-team-member-edit.html',
-                controller: 'TeamMemberEditCtrl'
-        }).when('/teams/:team/create',{
-                templateUrl: 'partials/ams-team-member-edit.html',
-                controller: 'TeamMemberCreateCtrl'
-            }).otherwise({
-                redirectTo: '/amsteam'
-            });
+        $urlRouterProvider.otherwise('/team/amsteam');
+
+        $stateProvider.state('team', {
+            url : '/team',
+            templateUrl : 'partials/ams-teams.html',
+            controller : 'TeamController',
+            abstract : true
+
+        }).state('team.members', {
+            url : '/:team',
+            templateUrl : 'partials/ams-team-members.html',
+            controller : 'MembersController'
+        }).state('team.members.create',{
+            url : '/create',
+            templateUrl : 'partials/ams-team-member-edit.html',
+            controller : 'TeamMemberCreateCtrl'
+        }).state('member', {
+            url : '/team/members/:id',
+            templateUrl : 'partials/ams-team-member.html',
+            controller : 'MemberController'
+        }).state('member.edit', {
+            url : '/edit',
+            controller : 'TeamMemberEditCtrl',
+            templateUrl : 'partials/ams-team-member-edit.html'
+        });
+
+
     }]).config(['$httpProvider', function($httpProvider){
                 $httpProvider.interceptors.push(function(){
                     return {

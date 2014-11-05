@@ -2,9 +2,9 @@
  * Created by satish on 18/10/14.
  */
 angular.module('TeamControllers').controller('TeamMemberEditCtrl',
-    function($scope, $routeParams,Members, $location){
+    function($scope, $stateParams,Members, $state){
 
-    var id = $routeParams.id;
+    var id = $stateParams.id;
 
     $scope.editMember = Members.get({id : id});
     $scope.banner = 'Editing';
@@ -12,12 +12,12 @@ angular.module('TeamControllers').controller('TeamMemberEditCtrl',
 
     $scope.updateMember = function(){
         $scope.editMember.$save(function(data){
-            $location.path('/member/' + $scope.editMember.id);
+            $state.go('^',{}, {reload : true});
         });
     }
 
     $scope.cancelEditing = function(){
-        $location.path('/member/' + $scope.editMember.id);
+        $state.go('^');
     }
 
 

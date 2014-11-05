@@ -18,25 +18,29 @@
     <link href="styles/dashboard.css" rel="stylesheet">
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-resource/angular-resource.js"></script>
-    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/controllers.js"></script>
     <script src="scripts/controllers/editController.js"></script>
     <script src="scripts/controllers/createController.js"></script>
     <script src="scripts/services/services.js"></script>
     <script src="scripts/services/teams.js"></script>
     <script src="scripts/services/members.js"></script>
     <script src="scripts/services/membersresource.js"></script>
-      <script src="scripts/services/mymembers.js"></script>
+    <script src="scripts/services/mymembers.js"></script>
+    <script src="scripts/controllers/teamController.js"></script>
+    <script src="scripts/controllers/memberController.js"></script>
+    <script src="scripts/controllers/membersController.js"></script>
   </head>
 
   <body >
 
-    <div app-header></div>
-
-    <div>
-        <ng-view></ng-view>
+    <div ng-include src="'partials/header.html'"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div ui-view></div>
+        </div>
     </div>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

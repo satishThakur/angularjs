@@ -105,7 +105,7 @@ console.log('Express listening on port 3000');
 
 
 var teams = [
-    "Template/NP",
+    "Template-NP",
     "SNMP Runtime",
     "AMS Core"
 ];
@@ -167,7 +167,7 @@ var teamMembers = [
     {
         id: 6,
         name: "Huy Nagyen",
-        team: "Template/NP",
+        team: "Template-NP",
         role: "IA",
         officeEmail : "satish.sk.kumar@alcatel-lucent.com",
         gmail : "satish.manit@gmail.com"
@@ -175,7 +175,7 @@ var teamMembers = [
     {
         id : 7,
         name : "Tuan Nguyen",
-        team : "Template/NP",
+        team : "Template-NP",
         role : "Developer",
         officeEmail : "satish.sk.kumar@alcatel-lucent.com",
         gmail : "satish.manit@gmail.com"
@@ -183,7 +183,7 @@ var teamMembers = [
     {
         id : 8,
         name : "Tai Tran",
-        team : "Template/NP",
+        team : "Template-NP",
         role : "Developer",
         officeEmail : "satish.sk.kumar@alcatel-lucent.com",
         gmail : "satish.manit@gmail.com"
